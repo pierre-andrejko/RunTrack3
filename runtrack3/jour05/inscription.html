@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="inscription">
+        <label for="nom">Nom</label><br>
+        <input type="text" name="nom" placeholder="Votre nom" min="1" max="40" required><br>
+        <div id="erreurNom" class="errormessage"></div>
+
+        <label for="prenom">Prénom</label><br>
+        <input type="text" name="prenom" placeholder="Votre prénom" min="1" max="30" required><br>
+        <div id="erreurPrenom" class="errormessage"></div>
+
+        <label for="email">Email</label><br>
+        <input type="text" name="email" placeholder="Votre adresse mail" min="8" max="30" required><br>
+        <div id="erreurMail" class="errormessage"></div>
+
+        <label for="password">Mot de Passe</label><br>
+        <input type="text" name="password" placeholder="Votre mot de passe" min="8" max="30" required><br>
+        <div id="erreurPassword" class="errormessage"></div>
+
+        <label for="passwordconfirm">Confirmer le Mot de Passe</label><br>
+        <input type="text" name="passwordconfirm" placeholder="Confirmer le mot de passe" min="8" max="30" required><br>
+        <div id="erreurPassword" class="errormessage"></div>
+
+        <label for="adresse">Adresse</label><br>
+        <input type="text" name="adress" placeholder="Votre adresse" min="10" max="50" required><br>
+        <div id="erreurAdresse" class="errormessage"></div>
+
+        <label for="postcode">Code Postal</label><br>
+        <input type="text" name="postalcode" placeholder="Votre code postal" min="5" max="5" required><br>
+        <div id="erreurPostcode" class="errormessage"></div>
+        <input type="submit" placeholder="Envoyer"><br>
+    </form>
+    <script>
+        document.getElementById('email').addEventListener('input', function() {
+            const erreurMail = document.getElementById('erreurMail');
+            if (!this.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                erreurMail.textContent = 'Adresse email invalide.';
+            } else {
+                erreurMail.textContent = '';
+            }
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            const passwordError = document.getElementById('passwordError');
+            if (this.value.length < 8) {
+                passwordError.textContent = 'Le mot de passe doit contenir au moins 8 caractères.';
+            } else {
+                passwordError.textContent = '';
+            }
+        });
+
+        document.getElementById('codepostal').addEventListener('input', function() {
+            const codepostalError = document.getElementById('codepostalError');
+            if (!this.value.match(/^\d{5}$/)) {
+                codepostalError.textContent = 'Le code postal doit comporter 5 chiffres.';
+            } else {
+                codepostalError.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>

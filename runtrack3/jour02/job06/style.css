@@ -1,0 +1,16 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.blue-theme {
+    background-color: #001f3f; 
+    color: #00bfff; 
+}
+
+.blue-theme h1 {
+    color: #00bfff;
+}
